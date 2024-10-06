@@ -45,7 +45,7 @@ router.post('/register', async (req, res) => {
         res.status(201).json({ message: 'Registration successful. OTP sent.' });
     } catch (error) {
         console.error('Error during registration:', error);
-        res.status(500).json({ message: 'Error during registration.' });
+        res.status(500).json({ message: 'Error during registration. Existing account with same mobile number.' });
     }
 });
 
