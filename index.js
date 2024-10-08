@@ -24,7 +24,7 @@ mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   serverApi: {
-    version: '1', // Corrected: Specify the server API version as a string
+    version: ServerApiVersion.v1,
     strict: true, // Enable strict mode
     deprecationErrors: true, // Enable deprecation errors
   },
