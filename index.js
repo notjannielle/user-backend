@@ -1,3 +1,4 @@
+require('dotenv').config(); // Ensure this is at the top of your file
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -18,7 +19,8 @@ app.use('/api/users', userRoutes); // Use user routes
 
 const PORT = process.env.PORT || 5001;
 
-mongoose.connect('mongodb+srv://escobar:@escobar4256@escobarvapecartel.snbyobo.mongodb.net/?retryWrites=true&w=majority&appName=escobarvapecartel', { useNewUrlParser: true, useUnifiedTopology: true })
+// Connect to MongoDB using the URI from the environment variable
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`);
