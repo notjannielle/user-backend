@@ -18,7 +18,7 @@ app.use('/api/users', userRoutes); // Use user routes
 
 const PORT = process.env.PORT || 5001;
 
-mongoose.connect('mongodb://127.0.0.1:27017/escobarvapedb', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://escobar:@escobar4256@escobarvapecartel.snbyobo.mongodb.net/?retryWrites=true&w=majority&appName=escobarvapecartel', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`);
