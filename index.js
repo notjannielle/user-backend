@@ -24,7 +24,7 @@ mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   serverApi: {
-    version: 1, // Set the Server API version
+    version: '1', // Corrected: Specify the server API version as a string
     strict: true, // Enable strict mode
     deprecationErrors: true, // Enable deprecation errors
   },
@@ -37,3 +37,9 @@ mongoose.connect(process.env.MONGO_URI, {
   .catch((error) => {
     console.error("Database connection error:", error);
   });
+
+// Error handling middleware (optional)
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
