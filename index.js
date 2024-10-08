@@ -23,8 +23,11 @@ const PORT = process.env.PORT || 5001;
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  ssl: true, // Add this line if you continue facing SSL issues
-  tls: true, // Add this line for TLS connection
+  serverApi: {
+    version: 1, // Set the Server API version
+    strict: true, // Enable strict mode
+    deprecationErrors: true, // Enable deprecation errors
+  },
 })
   .then(() => {
     app.listen(PORT, () => {
