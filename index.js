@@ -20,7 +20,12 @@ app.use('/api/users', userRoutes); // Use user routes
 const PORT = process.env.PORT || 5001;
 
 // Connect to MongoDB using the URI from the environment variable
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  ssl: true, // Add this line if you continue facing SSL issues
+  tls: true, // Add this line for TLS connection
+})
   .then(() => {
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`);
