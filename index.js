@@ -5,6 +5,7 @@ const cors = require('cors');
 const productRoutes = require('./routes/products');
 const orderRoutes = require('./routes/orders');
 const userRoutes = require('./routes/userRoutes'); // Import user routes
+const announcementRoutes = require('./routes/announcementRoutes');
 
 const app = express();
 
@@ -16,7 +17,10 @@ app.use(express.json());
 app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/users', userRoutes); // Use user routes
+// Import the announcement routes
 
+// Use routes
+app.use('/api/announcement', announcementRoutes);
 const PORT = process.env.PORT || 5001;
 
 // Connect to MongoDB using the URI from the environment variable
