@@ -6,6 +6,7 @@ const productRoutes = require('./routes/products');
 const orderRoutes = require('./routes/orders');
 const userRoutes = require('./routes/userRoutes'); // Import user routes
 const announcementRoutes = require('./routes/announcementRoutes');
+const imageRoutes = require('./routes/imageRoutes');
 
 const app = express();
 
@@ -22,6 +23,9 @@ app.use('/api/users', userRoutes); // Use user routes
 // Use routes
 app.use('/api/announcement', announcementRoutes);
 const PORT = process.env.PORT || 5001;
+
+
+app.use('/api/slider-images', imageRoutes); // Use the new image routes
 
 // Connect to MongoDB using the URI from the environment variable
 mongoose.connect(process.env.MONGO_URI, {
